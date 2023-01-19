@@ -1,11 +1,13 @@
       Program distancia
          Implicit None
          real*8  :: a,b,dist=0.0, ang1, ang2, ang3 
-         real*8,parameter :: pi=3.141592654D0
+         real*8,parameter :: pi=4.D0*DATAN(1.D0)
          open(unit=10, file='datos.dat')
          read(10,*) a,b,ang1, ang2, ang3
          write(*,*) a,b, ang1, ang2, ang3
-
+         ang1=ang1*pi/180
+         ang2=ang2*pi/180
+         ang3=ang3*pi/180
          call ellipses(a, b, a, b, ang1, ang2, ang3, dist )
          write(*,*) dist      
       End
